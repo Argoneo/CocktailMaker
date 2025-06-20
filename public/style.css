@@ -1,0 +1,481 @@
+/* ================================
+   Background
+================================== */
+html{
+   height: 100%;
+   background-color: black;
+}
+body {
+   background-image: url("./assets/sorbet.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   z-index: -1;
+   height: 100%;
+   width: 100%;
+   color: black!important;
+}
+
+/* ================================
+   Layout Container
+================================== */
+#container {
+   display: grid;
+   grid-template-columns: 40% 20% 40%;
+   grid-template-rows: 10% 87% 3%;      
+   color: black!important;
+   height: 100%; 
+   width: 100%; 
+   font-family: Arial, Helvetica, sans-serif !important;
+   font-size: 20px!important;
+   font-weight: 250!important;
+}
+
+/* ================================
+   Header
+================================== */
+header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   grid-area: 1/1/2/-1;
+   width: 100%;
+}
+
+header img {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   margin-top: 20px;
+}
+
+/* ================================
+   Main
+================================== */
+main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: top;
+   grid-area: 2/1/3/2;
+   background-color: #2a2a2a;
+   border-radius: 10%;
+   height: 100%;
+   width: 100%;
+   padding: 20px;
+}
+
+/* Buttons section */
+#buttons {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
+}
+
+#search {
+   display: flex;
+   flex-direction: row;
+   gap: 2px;
+   height: 100%;
+   width: 100%;
+}
+
+#searchDrink {
+   margin-bottom: 0;
+}
+
+input {
+   border-radius: 10px;
+   min-width: 200px;
+   font-size: 18px;
+}
+
+
+.myButton {
+   background: linear-gradient(to bottom, #ededed 5%, #ffcf9a 100%);
+   background-color: #ffcf9a;
+   border-radius: 15px;
+   border: 1px solid #ffcf9a;
+   display: inline-block;
+   cursor: pointer;
+   color: black;
+   font-family: Arial;
+   font-size: 17px!important;
+   padding: 12px 18px;
+   text-decoration: none;
+   white-space: nowrap;
+   width: auto;
+}
+
+.myButton:hover {
+   background: linear-gradient(to bottom, #ffcf9a 5%, #ffcf9a 100%);
+   background-color: #ffcf9a;
+}
+
+.myButton:active {
+   position: relative;
+   top: 1px;
+}
+
+#randomDrink {
+   padding-top: 0;
+}
+
+#random{
+   min-width: 200px;
+}
+
+
+/* ================================
+   Results and Image Section
+================================== */
+#results {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 60% auto;
+   background-color: transparent;
+   width: 100%;
+   margin: 30px 0 0 0;
+   padding-right: 0;
+  /* Minimum height for container */
+   height: auto !important; /* Maximum height for container */
+   gap: 30px;
+   border-radius: 10px;
+   margin-left: 15px;
+}
+
+#images {
+   grid-area: 1/1/2/2;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: auto;
+   height: fit-content;
+   background-color: #2a2a2a;
+   border-radius: 10px;
+   overflow: hidden;  
+}
+
+#images img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+}
+
+#images, #images img {
+   box-sizing: border-box;
+   z-index: 2;
+}
+
+/* ================================
+   Ingredients Section
+================================== */
+#ingredients {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   color: #ffebd6;
+   font-size: 10px!important;
+   text-align: start;
+   grid-area: 1/2/2/3;
+   height: fit-content;
+   margin: 20px 20px 0px 2px;
+   width: 100%;
+   min-height: 200px;
+   overflow-y: auto; 
+   padding-top:0
+}
+
+#listIngredients {
+   align-self: flex-start; 
+   white-space: normal; 
+   word-wrap: break-word;
+   width:fit-content;
+   height: fit-content; 
+   max-height: 80px; 
+   margin: 0px 0px 0px 0px;
+}
+
+/* Scrollbar verticale */
+#ingredients::-webkit-scrollbar {
+   width: 8px;
+}
+
+#ingredients::-webkit-scrollbar-thumb {
+   background-color: #ffcf9a;
+   border-radius: 6px;
+   border: 1px solid #c47b00;
+}
+
+#ingredients::-webkit-scrollbar-thumb:hover {
+   background-color: #ffa94d;
+}
+
+#ingredients::-webkit-scrollbar-track {
+   background: #2a2a2a;
+}
+
+#ingredients h3 {
+   min-width: 71px;
+   align-self: flex-start;
+   margin-top:0px
+}
+
+#extraText {
+   align-self: flex-start;
+}
+
+#listIngredients > ul {
+   padding-left: 0px;
+   margin-bottom: 0;
+   margin-top: 0;
+   font-size: 8px!important;
+   min-width: 71px;
+   align-items: flex-start;
+}
+
+/* ================================
+   Instructions Section
+================================== */
+#boxInstructions {
+   display: flex;
+   grid-area: 2/1/3/3;
+   padding: 0px;
+   margin-left: 0;
+   background-color: transparent;
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   min-height: 105px !important;
+   max-height: 110px;
+   max-width: 100%;
+   width:fit-content;
+   align-items: baseline;
+   border-radius: 10px;
+   
+}
+
+#instructions {
+   overflow-y: auto;
+   font-size: 16px!important;
+   color: #ffebd6;
+   line-height: 1.3;
+   white-space: normal;
+   word-wrap: break-word;
+   width:fit-content;
+   height: auto; 
+   max-height: 100px; 
+   margin: 0px 0px 0px 0px;
+   border-radius: 10px;
+   padding: 0px 4px 0px 4px;
+   -webkit-overflow-scrolling: touch;
+
+}
+
+/* Custom scrollbar */
+#instructions::-webkit-scrollbar {
+   width: 8px;
+}
+
+#instructions::-webkit-scrollbar-thumb {
+   background-color: #ffcf9a;
+   border-radius: 6px;
+   border: 1px solid #c47b00;
+}
+
+#instructions::-webkit-scrollbar-thumb:hover {
+   background-color: #ffa94d;
+}
+
+#instructions::-webkit-scrollbar-track {
+   background: #2a2a2a;
+}
+
+/* ================================
+   Headings
+================================== */
+h1 {
+   font-size: 38px!important;
+   color: #ffebd6;
+   margin-top: 0;
+}
+
+h3 {
+   font-size: 23px!important;
+   color: #ffebd6;
+}
+
+li{
+   font-size: 16px;
+}
+
+/* ================================
+   Footer
+================================== */
+footer {
+   display: flex;
+   justify-content: center;
+   grid-area: 3/1/4/4;
+}
+
+footer p {
+   font-size: 10px!important;
+   color: #ffebd6;
+   margin: 0;
+}
+
+/* ================================
+   Responsive Breakpoints
+================================== */
+
+@media (max-width: 1920px) {
+
+   #images {
+      width: 100%;
+      max-width: 180px; /* o la dimensione originale della tua immagine */
+      height: auto;
+      object-fit: contain;
+   }
+   #results {
+     min-height: 350px;
+
+   }
+
+   #boxInstructions {
+      min-height:90px;
+      max-height: 90px;
+      height: auto; 
+   }
+
+   #instructions {
+      max-height: 85px;
+      height: auto;  
+   }
+}
+
+@media (max-width: 1050px) {
+
+   html {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+   }
+
+   body{
+      background-image: none;
+      background-color: black;
+      height:auto;
+      padding:0;
+      margin: 0;
+   }
+   
+   #container {
+      display: flex;
+      flex-direction: column;
+      min-height: fit-content;
+      height:100%;
+      width:100%;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      gap:20px  
+   }
+
+   main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      min-height: fit-content;
+      width:auto ;
+      max-width: 600px;
+      padding: 30px;
+   }
+
+  #results {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+      min-height: fit-content;
+      margin-left: 0;
+   
+  }
+
+  #ingredients {
+      width: auto;
+      height:auto;
+      max-height:200px;
+      box-sizing: border-box;
+      padding: 10px;
+      display: block;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      white-space: normal; 
+  }
+
+  #listIngredients, #extraText, #ingredients h3 {
+      width: 100%;
+      word-break: break-word;
+      white-space: normal;
+  }
+
+  #listIngredients ul {
+      padding-left: 15px;
+      margin: 0;
+  }
+
+   #boxInstructions {
+      padding-left: 0;
+      margin-top: 0px !important;
+  }
+
+  #mobilePhoto{
+   width: 100%;
+   align-items: center;
+  }
+   img[hidden] {
+      display: block !important;
+      width: 100%;
+      border-radius: 40px;
+      margin-top: 30px;  
+   }
+
+}
+
+@media(max-width:850px){
+   main{
+      max-width: 500px;
+   }
+}
+
+@media(max-width:600px){
+  main{
+   width:auto;
+   max-width: 350px !important;
+}
+   img[hidden] {
+      display: block !important;
+      width: 100%;
+      border-radius: 40px;
+      margin-top: 30px;
+   }
+
+}
+
+@media(max-width:500px){
+    main{
+      main{max-width: 250px;}
+      margin: 0 20px 0 20px !important;
+   }
+ h1{
+      font-size: 34px !important;
+   }
+}
+
+   

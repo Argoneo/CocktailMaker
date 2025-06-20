@@ -1,0 +1,99 @@
+<%- include("./partials/headers.ejs") %>
+
+<main id="content">
+
+    <!-- Page title -->
+    <div id="title">
+        <h1>Make Your Cocktail</h1>
+    </div>
+
+    <!-- Buttons section: Random and Search -->
+    <div id="buttons">
+        <!-- Random drink form -->
+        <form action="/random" id="randomDrink" method="post">
+            <button class="myButton" type="submit" id="random">
+                <strong>Random drink</strong>
+            </button>
+        </form>
+
+        <!-- Search drink form -->
+        <form action="/search" id="searchDrink" method="post">
+            <div id="search">
+                <input type="text" placeholder=" Search for a drink" name="searchInput" required>
+                <button class="myButton" type="submit" id="go">
+                    <strong>Go</strong>
+                </button>
+            </div>
+        </form>  
+    </div>
+
+    <!-- Results section: image, ingredients, instructions -->
+    <div id="results">
+        <!-- Drink image -->
+        <% if (locals.image) { %>
+            <div id="images">
+                <img src="<%= image %>" alt="cocktail">
+            </div>
+        <% } else { %> 
+            <div id="images">       
+                <img src="./assets/cocktail.jpg" alt="cocktail">
+            </div>
+        <% } %>   
+
+        <!-- Ingredients list and name -->
+        <div id="ingredients">
+
+            <!-- Drink name -->
+            <% if (locals.name) { %>
+                <h3><%= name %></h3>
+            <% } else { %>
+                <div id="extraText">
+                    <h3>Let's party!!!</h3>
+                </div>
+            <% } %>
+
+            <!-- Ingredient list: dynamic or default -->
+            <% if (locals.arrIngredients) { %>
+                <div id="listIngredients">
+                    <ul>
+                        <% arrIngredients.forEach(function(item) { %>
+                            <li><%= item %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            <% } else { %>
+                <div id="listIngredients">
+                    <ul>
+                        <li>1 oz Vodka</li>
+                        <li>1 oz Gin</li>
+                        <li>1 oz Rum</li>
+                        <li>1 oz Tequila</li>
+                        <li>1 oz Triple sec</li>
+                    </ul>
+                </div>
+            <% } %>
+
+        </div>
+
+        <!-- Instructions -->
+        <div id="boxInstructions">
+            <% if (locals.instructions) { %>
+                <p id="instructions"><%= instructions %></p>
+            <% } else { %>
+                <p id="instructions"></p> 
+            <% } %>
+        </div>
+
+    </div>
+<!-- Hidden image for mobile view -->
+<div id="mobilePhoto">
+    <img src="./assets/sorbet.jpg" alt="cocktail" hidden>
+</div>
+</main>
+
+<%- include("./partials/footers.ejs") %>
+
+</div> <!-- Closing container div, if opened earlier -->
+
+</body>
+</html>
